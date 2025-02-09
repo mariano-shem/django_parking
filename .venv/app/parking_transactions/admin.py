@@ -1,12 +1,12 @@
 from django.contrib import admin
 from django.db import models
 
-from . models import Employees, Vehicles, Transactions, Departments, Genders
+from . models import Employees, Vehicles, Transactions, DepartmentPositions, Genders
 
 # Register your models here.
 
 class EmpAdmin(admin.ModelAdmin):
-    list_display = ('employee_id', 'employee_name', 'employee_dept', 'employee_post', 'employee_gender')
+    list_display = ('employee_name', 'employee_gender', 'employee_post', 'employee_dept')
     list_per_page = 10
 
     def has_delete_permission(self, request, obj=None):
@@ -26,6 +26,14 @@ class TxnAdmin(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         return True
 
+class DeptPostAdmin(admin.ModelAdmin):
+    list_display = ('dept_post_id', 'dept_post', 'dept_name')
+    list_per_page = 10
+
+    def has_delete_permission(self, request, obj=None):
+        return True
+
 admin.site.register(Employees, EmpAdmin)
 admin.site.register(Vehicles, VehiAdmin)
 admin.site.register(Transactions, TxnAdmin)
+admin.site.register(DepartmentPositions, DeptPostAdmin)
