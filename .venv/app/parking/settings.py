@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'parking_transactions',
     'libraries',
+    'nested_admin',
 ]
 
 MIDDLEWARE = [
