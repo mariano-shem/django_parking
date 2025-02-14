@@ -15,7 +15,7 @@ class Employees(models.Model):
     employee_post = models.ForeignKey(DepartmentPositions, db_column='employee_post', on_delete=models.CASCADE, related_name='employee_post', verbose_name='Employee Position')
     employee_dept = models.CharField(db_column='employee_dept', max_length=50, editable=False, null=False, default='TBA')
 
-    def save(self):
+    def save(self, *args, **kwargs):
         if self.employee_post:
             self.employee_dept = self.employee_post.dept_name
         super().save()
@@ -57,8 +57,8 @@ class Transactions(models.Model):
     VEHICLE_STATE=(
         (0, 'Parked'),
         (1, 'Reserved'),
-        (3, 'In Transit'),
-        (4, 'Charging')
+        (2, 'In Transit'),
+        (3, 'Charging')
     )
 
     txn_id = models.AutoField(db_column='txn_id', primary_key=True, editable=False)

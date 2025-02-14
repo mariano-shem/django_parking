@@ -19,8 +19,6 @@ class DepartmentPositions(models.Model):
 class Genders(models.Model):
 
     GENDER_TYPE = (
-        (0, '-----'),
-        (1, 'Female'),
-        (2, 'Male'),
-        (3, 'Not Specified')
+        (0, 'Female'),
+        (1, 'Male'),
     )

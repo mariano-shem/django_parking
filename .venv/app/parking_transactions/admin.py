@@ -28,7 +28,7 @@ class EmpAdmin(nested_admin.NestedModelAdmin):
     def has_delete_permission(self, request, obj=None):
         return True
 
-class VehiAdmin(admin.ModelAdmin):
+class VehiAdmin(nested_admin.NestedModelAdmin):
     list_display = ('vehicle_id', 'vehicle_plate', 'vehicle_type', 'vehicle_emp')
     search_fields = ['vehicle_plate']
     inlines = [TxnModelInline]
